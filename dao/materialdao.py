@@ -21,12 +21,22 @@ class almacenprimabd:
 
     def insertar_material(self, almacenprima):
         cursor = self.conexion.cursor()
-        sql = """INSERT INTO almacen_prima (cod_almacen_prima, fecha_ingreso, cod_material, cantidad_producto, cod_empleado) 
-                 VALUES (%s, %s, %s, %s, %s)"""
-        valores = (almacenprima.cod_almacen_prima, almacenprima.fecha_ingreso,
-                   almacenprima.cod_material, almacenprima.cantidad_producto,
-                   almacenprima.cod_empleado)
-        cursor.execute(sql, valores)
+        
+        # Insertar en almacen_prima
+        sql_insertar_almacen_prima = """INSERT INTO almacen_prima (cod_almacen_prima, fecha_ingreso, cod_material, cantidad_producto, cod_empleado) 
+                                        VALUES (%s, %s, %s, %s, %s)"""
+        valores_almacen_prima = (almacenprima.cod_almacen_prima, almacenprima.fecha_ingreso,
+                                 almacenprima.cod_material, almacenprima.cantidad_producto,
+                                 almacenprima.cod_empleado)
+        cursor.execute(sql_insertar_almacen_prima, valores_almacen_prima)
+
+        # Actualizar la cantidad disponible en la tabla materiales
+        sql_actualizar_materiales = """UPDATE materiales 
+                                       SET cantidad_disponible = cantidad_disponible + %s 
+                                       WHERE cod_material = %s"""
+        valores_materiales = (almacenprima.cantidad_producto, almacenprima.cod_material)
+        cursor.execute(sql_actualizar_materiales, valores_materiales)
+
         self.conexion.commit()
         cursor.close()
 

@@ -1,52 +1,88 @@
 from util.conexion import conexionbd
 
-class AlmacenStockBD:
+class AlmacenProduccionBD:
     def __init__(self):
         self.conexion = conexionbd().getconexionbd()
 
-    def listar_almacen_stock(self):
-        cursor = self.conexion.cursor()
-        sql = """SELECT cod_almacen_stock, fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto 
-                 FROM almacen_stock"""
-        cursor.execute(sql)
-        resultados = cursor.fetchall()
-        cursor.close()
-        return resultados
+    def listar_almacen_produccion(self):
+        try:
+            with self.conexion.cursor() as cursor:
+                sql = """SELECT cod_produccion, fecha_produccion, cantidad_produccion, cod_empleado, cod_material, cod_producto, cantidad_material
+                         FROM produccion"""
+                cursor.execute(sql)
+                resultados = cursor.fetchall()
+                return resultados
+        except Exception as e:
+            print(f"Error al listar producción: {e}")
+            return []
 
-    def buscar_almacen_stock(self, codalmacenstock):
-        cursor = self.conexion.cursor()
-        sql = """SELECT fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto
-                 FROM almacen_stock WHERE cod_almacen_stock = %s"""
-        cursor.execute(sql, (codalmacenstock,))
-        result = cursor.fetchone()
-        cursor.close()
-        return result
+    def buscar_almacen_produccion(self, codproducc):
+        try:
+            with self.conexion.cursor() as cursor:
+                sql = """SELECT fecha_produccion, cantidad_produccion, cod_empleado, cod_material, cod_producto, cantidad_material
+                         FROM produccion WHERE cod_produccion = %s"""
+                cursor.execute(sql, (codproducc,))
+                result = cursor.fetchone()
+                return result
+        except Exception as e:
+            print(f"Error al buscar producción: {e}")
+            return None
 
-    def insertar_almacen_stock(self, almacenstock):
-        cursor = self.conexion.cursor()
-        sql = """INSERT INTO almacen_stock (cod_almacen_stock, fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto) 
-                 VALUES (%s, %s, %s, %s, %s, %s)"""
-        valores = (almacenstock.cod_almacen_stock, 
-                   almacenstock.fecha_ingreso,
-                   almacenstock.cantidad_producto,
-                   almacenstock.nombre_producto,
-                   almacenstock.cod_empleado,
-                   almacenstock.cod_producto)
-        cursor.execute(sql, valores)
-        self.conexion.commit()
-        cursor.close()
+    def insertar_produccion(self, almacenproduccion):
+        try:
+            with self.conexion.cursor() as cursor:
+                # Verificar cantidad disponible
+                sql_verificar = """SELECT cantidad_disponible FROM materiales WHERE cod_material = %s"""
+                cursor.execute(sql_verificar, (almacenproduccion.cod_material,))
+                resultado = cursor.fetchone()
+                
+                if resultado:
+                    cantidad_disponible = resultado[0]
+                    if cantidad_disponible < almacenproduccion.cantidad_material:
+                        raise ValueError("Cantidad de material insuficiente para la producción.")
+                
+                # Insertar registro en la tabla de producción
+                sql_insertar = """INSERT INTO produccion (cod_produccion, fecha_produccion, cantidad_produccion, cod_empleado, cod_material, cod_producto, cantidad_material) 
+                                  VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+                valores = (almacenproduccion.cod_produccion, 
+                           almacenproduccion.fecha_produccion,
+                           almacenproduccion.cantidad_produccion,
+                           almacenproduccion.cod_empleado,
+                           almacenproduccion.cod_material,
+                           almacenproduccion.cod_producto,
+                           almacenproduccion.cantidad_material)
+                cursor.execute(sql_insertar, valores)
 
-    def actualizar_almacen_stock(self, almacenstock):
-        cursor = self.conexion.cursor()
-        sql = """UPDATE almacen_stock SET fecha_ingreso = %s, cantidad_producto = %s, nombre_producto = %s, cod_empleado = %s, cod_producto = %s
-                 WHERE cod_almacen_stock = %s"""
-        valores = (
-                   almacenstock.fecha_ingreso,
-                   almacenstock.cantidad_producto,
-                   almacenstock.nombre_producto,
-                   almacenstock.cod_empleado,
-                   almacenstock.cod_producto,
-                   almacenstock.cod_almacen_stock)
-        cursor.execute(sql, valores)
-        self.conexion.commit()
-        cursor.close()
+                # Reducir la cantidad en la tabla de materiales
+                sql_update = """UPDATE materiales 
+                                SET cantidad_disponible = cantidad_disponible - %s 
+                                WHERE cod_material = %s"""
+                cursor.execute(sql_update, (almacenproduccion.cantidad_material, almacenproduccion.cod_material))
+
+                self.conexion.commit()
+        except ValueError as ve:
+            print(f"Error: {ve}")
+            self.conexion.rollback()
+            raise ve
+        except Exception as e:
+            print(f"Error al insertar producción: {e}")
+            self.conexion.rollback()
+
+    def actualizar_almacen_produccion(self, almacenproduccion):
+        try:
+            with self.conexion.cursor() as cursor:
+                sql = """UPDATE produccion SET fecha_produccion = %s, cantidad_produccion = %s, cod_empleado = %s, cod_material = %s, cod_producto = %s, cantidad_material = %s
+                         WHERE cod_produccion = %s"""
+                valores = (
+                           almacenproduccion.fecha_produccion,
+                           almacenproduccion.cantidad_produccion,
+                           almacenproduccion.cod_empleado,
+                           almacenproduccion.cod_material,
+                           almacenproduccion.cod_producto,
+                           almacenproduccion.cantidad_material,
+                           almacenproduccion.cod_produccion)
+                cursor.execute(sql, valores)
+                self.conexion.commit()
+        except Exception as e:
+            print(f"Error al actualizar producción: {e}")
+            self.conexion.rollback()

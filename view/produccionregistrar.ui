@@ -20,10 +20,10 @@
    <widget class="QTableWidget" name="tablaproduccion">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>400</y>
-      <width>951</width>
-      <height>341</height>
+      <x>30</x>
+      <y>420</y>
+      <width>1031</width>
+      <height>331</height>
      </rect>
     </property>
     <property name="font">
@@ -125,14 +125,28 @@
       <set>AlignCenter</set>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>CANTIDAD MATERIAL</string>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>40</y>
-      <width>771</width>
-      <height>321</height>
+      <width>961</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="title">
@@ -310,8 +324,8 @@ border: 2px solid black;</string>
     <widget class="QPushButton" name="regresar">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>260</y>
+       <x>90</x>
+       <y>310</y>
        <width>131</width>
        <height>41</height>
       </rect>
@@ -337,8 +351,8 @@ border: 2px solid black;
     <widget class="QPushButton" name="registrarproduccion">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>260</y>
+       <x>390</x>
+       <y>310</y>
        <width>131</width>
        <height>41</height>
       </rect>
@@ -364,8 +378,8 @@ border: 2px solid black;
     <widget class="QPushButton" name="cancelarprod">
      <property name="geometry">
       <rect>
-       <x>590</x>
-       <y>260</y>
+       <x>690</x>
+       <y>310</y>
        <width>141</width>
        <height>41</height>
       </rect>
@@ -428,6 +442,44 @@ border: 2px solid black;</string>
       <rect>
        <x>190</x>
        <y>210</y>
+       <width>461</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(251, 255, 246);
+border: 2px solid black;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>250</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Century Gothic</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>CANTIDAD MATERIAL</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cantidad_materialpro">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>250</y>
        <width>461</width>
        <height>31</height>
       </rect>

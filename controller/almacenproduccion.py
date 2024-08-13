@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets, uic
-from dao.producciondao import almacenproduccionbd
+from dao.producciondao import AlmacenProduccionBD
 from model.produccion import Produccionmodel
 from PyQt5.QtWidgets import QTableWidgetItem
 from datetime import datetime
@@ -7,7 +7,7 @@ from datetime import datetime
 class AlmacenProduccionController:
     def __init__(self):
         app = QtWidgets.QApplication([])
-        self.objalmacenproducciondao = almacenproduccionbd()
+        self.objalmacenproducciondao = AlmacenProduccionBD()
         self.ventana = uic.loadUi("view/produccionregistrar.ui")
 
         # Configuración de la tabla de producción
@@ -16,7 +16,8 @@ class AlmacenProduccionController:
         self.ventana.tablaproduccion.setColumnWidth(2, 120)
         self.ventana.tablaproduccion.setColumnWidth(3, 100)
         self.ventana.tablaproduccion.setColumnWidth(4, 100)
-        self.ventana.tablaproduccion.setColumnWidth(5, 100)  # Corregido el índice de la columna
+        self.ventana.tablaproduccion.setColumnWidth(5, 100)
+        self.ventana.tablaproduccion.setColumnWidth(6, 120)
 
         # Conexión de eventos
         self.ventana.registrarproduccion.clicked.connect(self.registrarproducciononclicked)
@@ -36,7 +37,7 @@ class AlmacenProduccionController:
 
             objproduccion = self.objalmacenproducciondao.buscar_almacen_produccion(cod_produccion)
 
-            fecha_produccion = objproduccion[0]  # Corregido el índice de la fecha
+            fecha_produccion = objproduccion[0]
             if isinstance(fecha_produccion, datetime):
                 fecha_produccion_str = fecha_produccion.strftime('%d-%m-%Y')
             else:
@@ -47,6 +48,7 @@ class AlmacenProduccionController:
             self.ventana.codemple.setText(str(objproduccion[2]))
             self.ventana.codmaterial.setText(str(objproduccion[3]))
             self.ventana.codproducto.setText(str(objproduccion[4]))
+            self.ventana.cantidad_materialpro.setText(str(objproduccion[5]))  # Asignar el valor de cantidad_material
         except Exception as e:
             QtWidgets.QMessageBox.critical(self.ventana, "Error", f"Se ha producido un error: {e}")
 
@@ -59,6 +61,7 @@ class AlmacenProduccionController:
             self.ventana.cantidadpro.clear()
             self.ventana.codemple.clear()
             self.ventana.codproducto.clear()
+            self.ventana.cantidad_materialpro.clear()
         except Exception as e:
             QtWidgets.QMessageBox.critical(self.ventana, "Error", f"Se ha producido un error: {e}")
 
@@ -70,15 +73,22 @@ class AlmacenProduccionController:
             cod_empleado = self.ventana.codemple.text()
             cod_material = self.ventana.codmaterial.text()
             cod_producto = self.ventana.codproducto.text()
+            cantidad_material = self.ventana.cantidad_materialpro.text()  # Obtener el valor de cantidad_material
 
-            nuevoproduccion = Produccionmodel(cod_produccion, fecha_produccion, cantidad_produccion, cod_empleado, cod_material, cod_producto)
+            nuevoproduccion = Produccionmodel(
+                cod_produccion, fecha_produccion, cantidad_produccion, 
+                cod_empleado, cod_material, cod_producto, cantidad_material
+            )
 
-            if self.ventana.codpro.isEnabled():
-                self.objalmacenproducciondao.insertar_produccion(nuevoproduccion)
-            else:
-                self.objalmacenproducciondao.actualizar_almacen_produccion(nuevoproduccion)
+            try:
+                if self.ventana.codpro.isEnabled():
+                    self.objalmacenproducciondao.insertar_produccion(nuevoproduccion)
+                else:
+                    self.objalmacenproducciondao.actualizar_almacen_produccion(nuevoproduccion)
 
-            self.listar_almacen_produccion()
+                self.listar_almacen_produccion()
+            except ValueError as e:
+                QtWidgets.QMessageBox.warning(self.ventana, "Advertencia", str(e))
         except Exception as e:
             QtWidgets.QMessageBox.critical(self.ventana, "Error", f"Se ha producido un error: {e}")
 
@@ -94,10 +104,8 @@ class AlmacenProduccionController:
                 self.ventana.tablaproduccion.setItem(fila, 1, QTableWidgetItem(str(produccion[1])))
                 self.ventana.tablaproduccion.setItem(fila, 2, QTableWidgetItem(str(produccion[2])))
                 self.ventana.tablaproduccion.setItem(fila, 3, QTableWidgetItem(str(produccion[3])))
-                self.ventana.tablaproduccion.setItem(fila, 4, QTableWidgetItem(produccion[4]))
-                self.ventana.tablaproduccion.setItem(fila, 5, QTableWidgetItem(produccion[5]))
+                self.ventana.tablaproduccion.setItem(fila, 4, QTableWidgetItem(str(produccion[4])))
+                self.ventana.tablaproduccion.setItem(fila, 5, QTableWidgetItem(str(produccion[5])))
+                self.ventana.tablaproduccion.setItem(fila, 6, QTableWidgetItem(str(produccion[6])))
         except Exception as e:
             QtWidgets.QMessageBox.critical(self.ventana, "Error", f"Se ha producido un error: {e}")
-
-
-

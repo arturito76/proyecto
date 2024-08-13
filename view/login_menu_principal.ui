@@ -88,7 +88,7 @@ border: 2px solid GREE;
       <string>contraseña</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="dni">
      <property name="geometry">
       <rect>
        <x>350</x>
@@ -105,7 +105,7 @@ border: 2px solid GREE;
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="id_empleado">
      <property name="geometry">
       <rect>
        <x>350</x>
@@ -119,7 +119,7 @@ border: 2px solid GREE;
     border-radius: 10px;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="iniciarsesion">
      <property name="geometry">
       <rect>
        <x>300</x>
@@ -161,6 +161,19 @@ border: 2px solid GREE;
      </property>
      <property name="text">
       <string>PELUCHEANDO LA ZONA</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="respuesta_login">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>650</y>
+       <width>301</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
