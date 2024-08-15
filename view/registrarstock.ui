@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1113</width>
-    <height>836</height>
+    <width>1133</width>
+    <height>842</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>550</x>
+      <y>20</y>
       <width>681</width>
       <height>41</height>
      </rect>
@@ -45,8 +45,8 @@
      <rect>
       <x>50</x>
       <y>80</y>
-      <width>811</width>
-      <height>381</height>
+      <width>971</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -323,10 +323,10 @@ color: rgb(244, 228, 0);</string>
    <widget class="QTableWidget" name="tablastock">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>490</y>
-      <width>1001</width>
-      <height>321</height>
+      <x>180</x>
+      <y>470</y>
+      <width>931</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="font">
@@ -342,11 +342,32 @@ color: rgb(244, 228, 0);</string>
     <property name="autoScrollMargin">
      <number>16</number>
     </property>
+    <property name="showGrid">
+     <bool>true</bool>
+    </property>
+    <property name="sortingEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="rowCount">
+     <number>0</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>true</bool>
+    </attribute>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
     </attribute>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>170</number>
+     <number>190</number>
+    </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
     </attribute>
     <column>
      <property name="text">

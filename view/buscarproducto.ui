@@ -67,7 +67,7 @@ border:none;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="buscarproducto">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -92,7 +92,7 @@ border-radius: 10px</string>
      <string>Buscar</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="codproducto">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -130,7 +130,7 @@ border-radius: 8px</string>
      <string>Codigo:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="regresarproducto">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -160,7 +160,7 @@ border-radius: 18px</string>
      <string>regresar</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="resultadoproducto">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -172,9 +172,26 @@ border-radius: 18px</string>
     <property name="styleSheet">
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>150</number>
+    </attribute>
     <column>
      <property name="text">
       <string>CODIGO</string>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>FECHA_PRODUCCION</string>
      </property>
      <property name="font">
       <font>
@@ -203,34 +220,6 @@ border-radius: 18px</string>
     <column>
      <property name="text">
       <string>CANTIDAD</string>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>FECHA_PRODUCCION</string>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>ID_PRODUCCION</string>
      </property>
      <property name="font">
       <font>

@@ -73,7 +73,7 @@ class AlmacenProduccionController:
             cod_empleado = self.ventana.codemple.text()
             cod_material = self.ventana.codmaterial.text()
             cod_producto = self.ventana.codproducto.text()
-            cantidad_material = self.ventana.cantidad_materialpro.text()  # Obtener el valor de cantidad_material
+            cantidad_material = self.ventana.cantidad_materialpro.text()  
 
             nuevoproduccion = Produccionmodel(
                 cod_produccion, fecha_produccion, cantidad_produccion, 
@@ -83,8 +83,8 @@ class AlmacenProduccionController:
             try:
                 if self.ventana.codpro.isEnabled():
                     self.objalmacenproducciondao.insertar_produccion(nuevoproduccion)
-                else:
-                    self.objalmacenproducciondao.actualizar_almacen_produccion(nuevoproduccion)
+                    QtWidgets.QMessageBox.information(self.ventana, "Éxito", "Registro de produccion insertado correctamente.")
+               
 
                 self.listar_almacen_produccion()
             except ValueError as e:

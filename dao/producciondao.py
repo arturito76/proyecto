@@ -68,21 +68,4 @@ class AlmacenProduccionBD:
             print(f"Error al insertar producción: {e}")
             self.conexion.rollback()
 
-    def actualizar_almacen_produccion(self, almacenproduccion):
-        try:
-            with self.conexion.cursor() as cursor:
-                sql = """UPDATE produccion SET fecha_produccion = %s, cantidad_produccion = %s, cod_empleado = %s, cod_material = %s, cod_producto = %s, cantidad_material = %s
-                         WHERE cod_produccion = %s"""
-                valores = (
-                           almacenproduccion.fecha_produccion,
-                           almacenproduccion.cantidad_produccion,
-                           almacenproduccion.cod_empleado,
-                           almacenproduccion.cod_material,
-                           almacenproduccion.cod_producto,
-                           almacenproduccion.cantidad_material,
-                           almacenproduccion.cod_produccion)
-                cursor.execute(sql, valores)
-                self.conexion.commit()
-        except Exception as e:
-            print(f"Error al actualizar producción: {e}")
-            self.conexion.rollback()
+   

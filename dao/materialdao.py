@@ -30,7 +30,7 @@ class almacenprimabd:
                                  almacenprima.cod_empleado)
         cursor.execute(sql_insertar_almacen_prima, valores_almacen_prima)
 
-        # Actualizar la cantidad disponible en la tabla materiales
+        # Actualizar la cantidad disponible en la tabla materiales va a interactuar con la tabla de materiales :)
         sql_actualizar_materiales = """UPDATE materiales 
                                        SET cantidad_disponible = cantidad_disponible + %s 
                                        WHERE cod_material = %s"""
@@ -40,13 +40,3 @@ class almacenprimabd:
         self.conexion.commit()
         cursor.close()
 
-    def actualizar_almacen_prima(self, almacenprima):
-        cursor = self.conexion.cursor()
-        sql = """UPDATE almacen_prima SET fecha_ingreso = %s, cod_material = %s, cantidad_producto = %s, cod_empleado = %s
-                 WHERE cod_almacen_prima = %s"""
-        valores = (almacenprima.fecha_ingreso, almacenprima.cod_material,
-                   almacenprima.cantidad_producto, almacenprima.cod_empleado,
-                   almacenprima.cod_almacen_prima)
-        cursor.execute(sql, valores)
-        self.conexion.commit()
-        cursor.close()

@@ -71,12 +71,15 @@ class AlmacenStockController:
             cod_empleado = self.ventana.codemple.text()
             cod_producto = self.ventana.codproductostock.text()
 
+            if cod_empleado != 'E002':
+                QtWidgets.QMessageBox.warning(self.ventana, "Advertencia", "El código de empleado no pertenece a esta área")
+                return
+
             nuevo_stock = AlmacenStockMode(cod_almacen_stock, fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto)
 
             if self.ventana.codstock.isEnabled():
                 self.objalmacenstockdao.insertar_almacen_stock(nuevo_stock)
-            else:
-                self.objalmacenstockdao.actualizar_almacen_stock(nuevo_stock)
+                QtWidgets.QMessageBox.information(self.ventana, "Éxito", "Registro de stock insertado correctamente.")
 
             self.listar_almacen_stock()
         except Exception as e:

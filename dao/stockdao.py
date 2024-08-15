@@ -22,28 +22,30 @@ class AlmacenStockBD:
 
     def insertar_almacen_stock(self, almacenstock):
         with self.conexion.cursor() as cursor:
-            sql = """INSERT INTO almacen_stock (cod_almacen_stock, fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto) 
-                     VALUES (%s, %s, %s, %s, %s, %s)"""
+            # Actualizar la cantidad del producto en la tabla 'producto'
+            sql_update_producto = """
+            UPDATE producto 
+            SET cantidad_producto = cantidad_producto + %s 
+            WHERE cod_producto = %s
+            """
+            cursor.execute(sql_update_producto, (almacenstock.cantidad_producto, almacenstock.cod_producto))
+
+            # Insertar el nuevo registro en 'almacen_stock'
+            sql_insert_almacen_stock = """ 
+            INSERT INTO almacen_stock (cod_almacen_stock, fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto) 
+            VALUES (%s, %s, %s, %s, %s, %s)
+            """
             valores = (almacenstock.cod_almacen_stock, 
                        almacenstock.fecha_ingreso,
                        almacenstock.cantidad_producto,
                        almacenstock.nombre_producto,
                        almacenstock.cod_empleado,
                        almacenstock.cod_producto)
-            cursor.execute(sql, valores)
+            cursor.execute(sql_insert_almacen_stock, valores)
+
+            # Confirmar las transacciones
             self.conexion.commit()
 
-    def actualizar_almacen_stock(self, almacenstock):
-        with self.conexion.cursor() as cursor:
-            sql = """UPDATE almacen_stock SET fecha_ingreso = %s, cantidad_producto = %s, nombre_producto = %s, cod_empleado = %s, cod_producto = %s
-                     WHERE cod_almacen_stock = %s"""
-            valores = (
-                       almacenstock.fecha_ingreso,
-                       almacenstock.cantidad_producto,
-                       almacenstock.nombre_producto,
-                       almacenstock.cod_empleado,
-                       almacenstock.cod_producto,
-                       almacenstock.cod_almacen_stock)
-            cursor.execute(sql, valores)
-            self.conexion.commit()
+
+  
 

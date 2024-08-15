@@ -73,8 +73,8 @@ class almacenprimaController:
 
             if self.ventana.codprima.isEnabled():
                 self.objalmacenprimadao.insertar_material(nuevoprima)
-            else:
-                self.objalmacenprimadao.actualizar_almacen_prima(nuevoprima)
+                QtWidgets.QMessageBox.information(self.ventana, "Éxito", "Registro de material insertado correctamente.")
+            
 
             self.listar_almacen_prima()
         except Exception as e:
