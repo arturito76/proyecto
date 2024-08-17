@@ -8,7 +8,7 @@ class AlmacenProduccionBD:
         try:
             with self.conexion.cursor() as cursor:
                 sql = """SELECT cod_produccion, fecha_produccion, cantidad_produccion, cod_empleado, cod_material, cod_producto, cantidad_material
-                         FROM produccion"""
+                         FROM produccion ORDER BY cod_produccion DESC"""
                 cursor.execute(sql)
                 resultados = cursor.fetchall()
                 return resultados

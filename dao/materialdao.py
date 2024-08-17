@@ -6,7 +6,7 @@ class almacenprimabd:
 
     def listar_almacen_prima(self):
         cursor = self.conexion.cursor()
-        sql = "SELECT cod_almacen_prima, fecha_ingreso, cod_material, cantidad_producto, cod_empleado FROM almacen_prima"
+        sql = "SELECT cod_almacen_prima, fecha_ingreso, cod_material, cantidad_producto, cod_empleado FROM almacen_prima ORDER BY cod_almacen_prima DESC"
         cursor.execute(sql)
         return cursor.fetchall()
 

@@ -6,7 +6,7 @@ from datetime import datetime
 
 class almacenprimaController:
     def __init__(self):
-        app = QtWidgets.QApplication([])
+        #app = QtWidgets.QApplication([])
         self.objalmacenprimadao = almacenprimabd()
         self.ventana = uic.loadUi("view/almacenprima.ui")
 
@@ -21,10 +21,17 @@ class almacenprimaController:
         self.ventana.registrar.clicked.connect(self.registraronclicked)
         self.ventana.cancelar.clicked.connect(self.cancelaronclicked)
         self.ventana.tableprima.cellClicked.connect(self.tableprimacellClick)
+        self.ventana.regresar2.clicked.connect(self.regresar2onclicked)
 
-        self.ventana.show()
+        #self.ventana.show()
         self.listar_almacen_prima()
-        app.exec()
+        #app.exec()
+
+    def regresar2onclicked(self):
+        from controller.menuprincipal  import menu_principal
+        self.ventana.close()
+        self.frmmenuprincipal=menu_principal()
+        self.frmmenuprincipal.ventana.show()
 
     def tableprimacellClick(self, fila):
         try:
@@ -67,6 +74,9 @@ class almacenprimaController:
             cod_material = self.ventana.codmaterial.text()
             cantidad_producto = self.ventana.canprod.text()
             cod_empleado = self.ventana.codemple.text()
+            if cod_empleado != 'E002':
+                QtWidgets.QMessageBox.warning(self.ventana, "Advertencia", "El código de empleado no pertenece a esta área")
+                return
 
             
             nuevoprima = AlmacenPrimamode(cod_almacen_prima, fecha_ingreso, cod_material, cantidad_producto, cod_empleado)

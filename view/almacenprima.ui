@@ -210,32 +210,6 @@ Border-radius: 18px</string>
 Border-radius: 18px</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>700</x>
-       <y>250</y>
-       <width>211</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Arial</family>
-       <pointsize>-1</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(153, 119, 112);
-Border-radius: 18px</string>
-     </property>
-     <property name="text">
-      <string>REGRESAR</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QTableWidget" name="tableprima">
      <property name="geometry">
       <rect>
@@ -346,6 +320,19 @@ Border-radius: 18px</string>
      </property>
      <property name="text">
       <string>CANCELAR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="regresar2">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>280</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>REGRESAR</string>
      </property>
     </widget>
    </widget>

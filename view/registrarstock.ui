@@ -263,7 +263,7 @@ color: rgb(85, 170, 0);</string>
       <string>CANCELAR</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="regresar1">
      <property name="geometry">
       <rect>
        <x>350</x>

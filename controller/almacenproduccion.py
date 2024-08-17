@@ -4,9 +4,10 @@ from model.produccion import Produccionmodel
 from PyQt5.QtWidgets import QTableWidgetItem
 from datetime import datetime
 
+
 class AlmacenProduccionController:
     def __init__(self):
-        app = QtWidgets.QApplication([])
+        #app = QtWidgets.QApplication([])
         self.objalmacenproducciondao = AlmacenProduccionBD()
         self.ventana = uic.loadUi("view/produccionregistrar.ui")
 
@@ -23,11 +24,18 @@ class AlmacenProduccionController:
         self.ventana.registrarproduccion.clicked.connect(self.registrarproducciononclicked)
         self.ventana.cancelarprod.clicked.connect(self.cancelarprodonclicked)
         self.ventana.tablaproduccion.cellClicked.connect(self.tablaproduccioncellClick)
+        self.ventana.regresar.clicked.connect(self.regresaronclicked)
 
         # Mostrar ventana y listar la producción
-        self.ventana.show()
+        #self.ventana.show()
         self.listar_almacen_produccion()
-        app.exec()
+        #app.exec()
+
+    def regresaronclicked(self):
+        from controller.menuprincipal import menu_principal
+        self.ventana.close()
+        self.frmmenuprincipal=menu_principal()
+        self.frmmenuprincipal.ventana.show()
 
     def tablaproduccioncellClick(self, fila, columna):
         try:
@@ -74,6 +82,9 @@ class AlmacenProduccionController:
             cod_material = self.ventana.codmaterial.text()
             cod_producto = self.ventana.codproducto.text()
             cantidad_material = self.ventana.cantidad_materialpro.text()  
+            if cod_empleado != 'E003':
+                QtWidgets.QMessageBox.warning(self.ventana, "Advertencia", "El código de empleado no pertenece a esta área")
+                return
 
             nuevoproduccion = Produccionmodel(
                 cod_produccion, fecha_produccion, cantidad_produccion, 

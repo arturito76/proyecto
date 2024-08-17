@@ -10,9 +10,11 @@
 #fr=AlmacenStockController()
 
 
-#from controller.empleadocontroller import LoginController
-#df= LoginController()
+from controller.empleadocontroller import LoginController
+df= LoginController()
 
 
-from controller.controllerbuscarproducto import productoController
-dr=productoController()
+#from controller.controllerbuscarproducto import productoController
+#dr=productoController()
+#from controller.menuprincipal import menu_principal
+#dr=menu_principal()

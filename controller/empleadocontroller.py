@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from dao.empleadodao import EmpleadoDAO
-
-from controller.almacenproduccion import AlmacenProduccionController
+from controller.menuprincipal import menu_principal
 
 class LoginController:
     def __init__(self):
@@ -24,9 +23,11 @@ class LoginController:
 
         if self.validar_login(dni, cod_empleado):
             self.ventana_login.close()
-            self.mostrar_ventana_produccion()
+            
         else:
             self.ventana_login.respuesta_login.setText("DNI o código de empleado incorrectos.")
+        self.frmmenuprincipal=menu_principal()
+        self.frmmenuprincipal.ventana.show()
     
     def validar_login(self, dni, cod_empleado):
         return self.empleado_dao.validar_login(dni, cod_empleado)

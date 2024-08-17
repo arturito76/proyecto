@@ -6,7 +6,7 @@ from datetime import datetime
 
 class AlmacenStockController:
     def __init__(self):
-        app = QtWidgets.QApplication([])
+        #app = QtWidgets.QApplication([])
         self.objalmacenstockdao = AlmacenStockBD()  # Usa la clase correcta aquí
         self.ventana = uic.loadUi("view/registrarstock.ui")
 
@@ -22,11 +22,18 @@ class AlmacenStockController:
         self.ventana.agregarstock.clicked.connect(self.agregarstockonclicked)
         self.ventana.cancelarstock.clicked.connect(self.cancelarstockclicked)
         self.ventana.tablastock.cellClicked.connect(self.tablastockcellClick)
+        self.ventana.regresar1.clicked.connect(self.regresar1onclicked)
 
         # Mostrar ventana y listar el stock
-        self.ventana.show()
+        #self.ventana.show()
         self.listar_almacen_stock()
-        app.exec()
+        #app.exec()
+
+    def regresar1onclicked(self):
+        from controller.menuprincipal import menu_principal
+        self.ventana.close()
+        self.frmmenuprincipal=menu_principal()
+        self.frmmenuprincipal.ventana.show()
 
     def tablastockcellClick(self, fila, columna):
         try:
@@ -71,7 +78,7 @@ class AlmacenStockController:
             cod_empleado = self.ventana.codemple.text()
             cod_producto = self.ventana.codproductostock.text()
 
-            if cod_empleado != 'E002':
+            if cod_empleado != 'E001':
                 QtWidgets.QMessageBox.warning(self.ventana, "Advertencia", "El código de empleado no pertenece a esta área")
                 return
 

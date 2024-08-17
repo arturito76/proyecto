@@ -7,7 +7,7 @@ class AlmacenStockBD:
     def listar_almacen_stock(self):
         with self.conexion.cursor() as cursor:
             sql = """SELECT cod_almacen_stock, fecha_ingreso, cantidad_producto, nombre_producto, cod_empleado, cod_producto 
-                     FROM almacen_stock"""
+                     FROM almacen_stock ORDER BY cod_almacen_stock DESC"""
             cursor.execute(sql)
             resultados = cursor.fetchall()
             return resultados
