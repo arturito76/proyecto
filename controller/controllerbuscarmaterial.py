@@ -11,10 +11,10 @@ class controllerbuscarmaterial:
         # Configuración de las columnas de la tabla
         self.ventana.resultadomaterial.setColumnWidth(0, 200)
         self.ventana.resultadomaterial.setColumnWidth(1, 200)
-        self.ventana.resultadomaterial.setColumnWidth(2, 120)
-        self.ventana.resultadomaterial.setColumnWidth(3, 120)
-        self.ventana.resultadomaterial.setColumnWidth(4, 120)
-        self.ventana.resultadomaterial.setColumnWidth(5, 120)
+        self.ventana.resultadomaterial.setColumnWidth(2, 200)
+        self.ventana.resultadomaterial.setColumnWidth(3, 200)
+        self.ventana.resultadomaterial.setColumnWidth(4, 200)
+        self.ventana.resultadomaterial.setColumnWidth(5, 200)
 
         # Conectar el botón de búsqueda a la función correspondiente
         self.ventana.buscarmaterial.clicked.connect(self.buscarmaterialonclicked)

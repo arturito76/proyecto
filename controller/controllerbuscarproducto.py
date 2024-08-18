@@ -13,8 +13,8 @@ class productoController:
 
         # Configuración inicial de la tabla
         
-        self.ventana.resultadoproducto.setColumnWidth(0, 100)
-        self.ventana.resultadoproducto.setColumnWidth(1, 120)
+        self.ventana.resultadoproducto.setColumnWidth(0, 150)
+        self.ventana.resultadoproducto.setColumnWidth(1, 200)
         self.ventana.resultadoproducto.setColumnWidth(2, 200)
         self.ventana.resultadoproducto.setColumnWidth(3, 100)
 

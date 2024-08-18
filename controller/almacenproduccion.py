@@ -12,13 +12,13 @@ class AlmacenProduccionController:
         self.ventana = uic.loadUi("view/produccionregistrar.ui")
 
         # Configuración de la tabla de producción
-        self.ventana.tablaproduccion.setColumnWidth(0, 50)
+        self.ventana.tablaproduccion.setColumnWidth(0, 150)
         self.ventana.tablaproduccion.setColumnWidth(1, 250)
         self.ventana.tablaproduccion.setColumnWidth(2, 120)
         self.ventana.tablaproduccion.setColumnWidth(3, 100)
-        self.ventana.tablaproduccion.setColumnWidth(4, 100)
-        self.ventana.tablaproduccion.setColumnWidth(5, 100)
-        self.ventana.tablaproduccion.setColumnWidth(6, 120)
+        self.ventana.tablaproduccion.setColumnWidth(4, 200)
+        self.ventana.tablaproduccion.setColumnWidth(5, 200)
+        self.ventana.tablaproduccion.setColumnWidth(6, 220)
 
         # Conexión de eventos
         self.ventana.registrarproduccion.clicked.connect(self.registrarproducciononclicked)

@@ -21,8 +21,8 @@
    <widget class="QTableWidget" name="tablaproduccion">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>420</y>
+      <x>60</x>
+      <y>430</y>
       <width>1031</width>
       <height>331</height>
      </rect>

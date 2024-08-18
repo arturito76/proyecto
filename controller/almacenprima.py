@@ -11,11 +11,11 @@ class almacenprimaController:
         self.ventana = uic.loadUi("view/almacenprima.ui")
 
         
-        self.ventana.tableprima.setColumnWidth(0, 50)
+        self.ventana.tableprima.setColumnWidth(0, 150)
         self.ventana.tableprima.setColumnWidth(1, 250)
-        self.ventana.tableprima.setColumnWidth(2, 120)
-        self.ventana.tableprima.setColumnWidth(3, 100)
-        self.ventana.tableprima.setColumnWidth(4, 100)
+        self.ventana.tableprima.setColumnWidth(2, 200)
+        self.ventana.tableprima.setColumnWidth(3, 200)
+        self.ventana.tableprima.setColumnWidth(4, 200)
 
        
         self.ventana.registrar.clicked.connect(self.registraronclicked)

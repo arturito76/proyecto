@@ -11,12 +11,12 @@ class AlmacenStockController:
         self.ventana = uic.loadUi("view/registrarstock.ui")
 
         # Configuración de la tabla de stock
-        self.ventana.tablastock.setColumnWidth(0, 50)
+        self.ventana.tablastock.setColumnWidth(0, 100)
         self.ventana.tablastock.setColumnWidth(1, 250)
         self.ventana.tablastock.setColumnWidth(2, 120)
-        self.ventana.tablastock.setColumnWidth(3, 100)
+        self.ventana.tablastock.setColumnWidth(3, 200)
         self.ventana.tablastock.setColumnWidth(4, 100)
-        self.ventana.tablastock.setColumnWidth(5, 100)
+        self.ventana.tablastock.setColumnWidth(5, 150)
 
         # Conexión de eventos
         self.ventana.agregarstock.clicked.connect(self.agregarstockonclicked)
