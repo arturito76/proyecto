@@ -23,11 +23,17 @@ class AlmacenStockController:
         self.ventana.cancelarstock.clicked.connect(self.cancelarstockclicked)
         self.ventana.tablastock.cellClicked.connect(self.tablastockcellClick)
         self.ventana.regresar1.clicked.connect(self.regresar1onclicked)
+        self.ventana.buscarproducto.clicked.connect(self.buscarproductooncliked)
 
         # Mostrar ventana y listar el stock
         #self.ventana.show()
         self.listar_almacen_stock()
         #app.exec()
+    def buscarproductooncliked(self):
+        self.ventana.close()
+        from controller.controllerbuscarproducto import productoController
+        self.frmbuscarproducto=  productoController()
+        self.frmbuscarproducto.ventana.show()
 
     def regresar1onclicked(self):
         from controller.menuprincipal import menu_principal

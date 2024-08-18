@@ -6,22 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1085</width>
-    <height>773</height>
+    <width>1140</width>
+    <height>853</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(231, 215, 193);</string>
+   <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
+      <x>0</x>
+      <y>40</y>
       <width>1081</width>
       <height>771</height>
      </rect>
@@ -29,15 +31,15 @@
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>-1</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-family: &quot;Arial&quot;;  /* Tipo de letra Arial */
-font-size: 16px;  /* Tamaño de letra de 16 píxeles */</string>
+     <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+
+</string>
     </property>
     <property name="title">
-     <string>REGISTRAR MATERIAL:</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -54,11 +56,13 @@ font-size: 16px;  /* Tamaño de letra de 16 píxeles */</string>
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>-1</pointsize>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>COD_ALMACEN_PRIMA:</string>
+      <string>COD ALMACEN PRIMA</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -76,11 +80,13 @@ font-size: 16px;  /* Tamaño de letra de 16 píxeles */</string>
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>-1</pointsize>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>FECHA_INGRESO:</string>
+      <string>FECHA INGRESO</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
@@ -95,11 +101,13 @@ font-size: 16px;  /* Tamaño de letra de 16 píxeles */</string>
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>-1</pointsize>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>COD_MATERIAL</string>
+      <string>COD MATERIAL</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -114,7 +122,9 @@ font-size: 16px;  /* Tamaño de letra de 16 píxeles */</string>
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>-1</pointsize>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -133,11 +143,13 @@ font-size: 16px;  /* Tamaño de letra de 16 píxeles */</string>
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>-1</pointsize>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>COD_EMPLEADO:</string>
+      <string>COD EMPLEADO</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="codprima">
@@ -214,9 +226,9 @@ Border-radius: 18px</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>480</y>
+       <y>470</y>
        <width>1001</width>
-       <height>271</height>
+       <height>301</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -299,11 +311,14 @@ Border-radius: 18px</string>
     <widget class="QPushButton" name="registrar">
      <property name="geometry">
       <rect>
-       <x>730</x>
-       <y>40</y>
+       <x>620</x>
+       <y>30</y>
        <width>161</width>
        <height>71</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 0);</string>
      </property>
      <property name="text">
       <string>REGISTRAR</string>
@@ -312,11 +327,14 @@ Border-radius: 18px</string>
     <widget class="QPushButton" name="cancelar">
      <property name="geometry">
       <rect>
-       <x>730</x>
-       <y>150</y>
+       <x>900</x>
+       <y>90</y>
        <width>161</width>
        <height>71</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 85, 0);</string>
      </property>
      <property name="text">
       <string>CANCELAR</string>
@@ -325,16 +343,60 @@ Border-radius: 18px</string>
     <widget class="QPushButton" name="regresar2">
      <property name="geometry">
       <rect>
-       <x>750</x>
-       <y>280</y>
+       <x>900</x>
+       <y>370</y>
        <width>171</width>
-       <height>61</height>
+       <height>71</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(223, 111, 0);</string>
      </property>
      <property name="text">
       <string>REGRESAR</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="buscarmaterial">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>180</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 255, 127);</string>
+     </property>
+     <property name="text">
+      <string>BUSCAR MATERIAL</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>0</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 170, 255);
+
+Border-radius: 18px</string>
+    </property>
+    <property name="text">
+     <string>ALMACEN PRIMA</string>
+    </property>
    </widget>
   </widget>
  </widget>

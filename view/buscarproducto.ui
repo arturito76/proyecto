@@ -38,8 +38,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(52, 148, 175);
-color: rgb(255, 255, 255);</string>
+   <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
@@ -58,11 +58,12 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(170, 170, 127);
+    <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+
 border:none;</string>
    </property>
    <property name="title">
-    <string>Producto</string>
+    <string>AREA STOCK </string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -72,7 +73,7 @@ border:none;</string>
      <rect>
       <x>530</x>
       <y>90</y>
-      <width>81</width>
+      <width>121</width>
       <height>41</height>
      </rect>
     </property>
@@ -84,7 +85,7 @@ border:none;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(217, 217, 163);
+     <string notr="true">background-color: rgb(170, 255, 0);
 
 border-radius: 10px</string>
     </property>
@@ -151,8 +152,7 @@ border-radius: 8px</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(243, 243, 182);
-color: rgb(0, 0, 0);
+     <string notr="true">background-color: rgb(85, 255, 127);
 
 border-radius: 18px</string>
     </property>
@@ -163,17 +163,18 @@ border-radius: 18px</string>
    <widget class="QTableWidget" name="resultadoproducto">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>20</x>
       <y>250</y>
-      <width>611</width>
-      <height>271</height>
+      <width>671</width>
+      <height>291</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(170, 170, 255);</string>
     </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>150</number>
+     <number>170</number>
     </attribute>
     <column>
      <property name="text">

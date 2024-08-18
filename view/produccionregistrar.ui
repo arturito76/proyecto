@@ -14,7 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(148, 161, 135);</string>
+   <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTableWidget" name="tablaproduccion">
@@ -494,9 +495,9 @@ border: 2px solid black;</string>
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>10</y>
-      <width>441</width>
-      <height>41</height>
+      <y>0</y>
+      <width>511</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -509,7 +510,7 @@ border: 2px solid black;</string>
      </font>
     </property>
     <property name="text">
-     <string>AGREGAR PRODUCCIÓN</string>
+     <string>ÁREA PRODUCCIÓN</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

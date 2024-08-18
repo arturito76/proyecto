@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>829</width>
-    <height>613</height>
+    <width>1084</width>
+    <height>772</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(134, 255, 231);
-background-color: rgb(170, 170, 30);</string>
+   <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
+      <x>130</x>
+      <y>30</y>
       <width>541</width>
       <height>51</height>
      </rect>
@@ -36,7 +36,8 @@ background-color: rgb(170, 170, 30);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">
-background-color: rgb(170, 170, 127);
+background-color: rgb(85, 170, 255);
+
  border-radius: 12px;</string>
     </property>
     <property name="text">
@@ -49,8 +50,8 @@ background-color: rgb(170, 170, 127);
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>110</y>
+      <x>150</x>
+      <y>150</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -66,11 +67,11 @@ background-color: rgb(170, 170, 127);
      <string>CODIGO</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="codmaterialtext">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>110</y>
+      <x>290</x>
+      <y>150</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -88,63 +89,46 @@ border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
  border-radius: 12px;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="buscarmaterial">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>120</y>
-      <width>111</width>
-      <height>31</height>
+      <x>610</x>
+      <y>140</y>
+      <width>191</width>
+      <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(170, 170, 127);
+     <string notr="true">background-color: rgb(170, 255, 127);
  border-radius: 12px;</string>
     </property>
     <property name="text">
      <string>CONSULTAR</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="resultadomaterial">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>210</y>
-      <width>821</width>
-      <height>281</height>
+      <x>-20</x>
+      <y>290</y>
+      <width>1081</width>
+      <height>341</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(172, 172, 129);
+     <string notr="true">background-color: rgb(170, 170, 255);
  border-radius: 12px;</string>
     </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>200</number>
+     <number>180</number>
     </attribute>
-    <column>
-     <property name="text">
-      <string>COD_ALMACEN</string>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>FECHA_INGRESO</string>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-    </column>
     <column>
      <property name="text">
       <string>COD_MATERIAL</string>
@@ -159,7 +143,30 @@ border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
     </column>
     <column>
      <property name="text">
-      <string>CANTIDAD_PRODUCTO</string>
+      <string>NOMBRE</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>UNIDAD MEDIDA</string>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>CANT PRODUCTO</string>
      </property>
      <property name="font">
       <font>
@@ -181,19 +188,30 @@ border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
       </font>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>PRECIO UNIDAD</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="regresar">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>400</y>
+      <x>740</x>
+      <y>670</y>
       <width>181</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 255);
-background-color: rgb(255, 214, 108);
+     <string notr="true">background-color: rgb(29, 138, 255);
  border-radius: 12px;</string>
     </property>
     <property name="text">

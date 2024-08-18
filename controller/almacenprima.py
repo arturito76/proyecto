@@ -22,10 +22,17 @@ class almacenprimaController:
         self.ventana.cancelar.clicked.connect(self.cancelaronclicked)
         self.ventana.tableprima.cellClicked.connect(self.tableprimacellClick)
         self.ventana.regresar2.clicked.connect(self.regresar2onclicked)
+        self.ventana.buscarmaterial.clicked.connect(self.buscarmaterialonclicked)
 
         #self.ventana.show()
         self.listar_almacen_prima()
         #app.exec()
+    def buscarmaterialonclicked(self):
+        from controller.controllerbuscarmaterial import controllerbuscarmaterial
+        self.ventana.close()
+        self.frmbuscarmaterial= controllerbuscarmaterial()
+        self.frmbuscarmaterial.ventana.show()
+
 
     def regresar2onclicked(self):
         from controller.menuprincipal  import menu_principal

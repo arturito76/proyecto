@@ -5,17 +5,14 @@ from datetime import datetime
 
 class productoController:
     def __init__(self):
-        app = QtWidgets.QApplication([])
+        #app = QtWidgets.QApplication([])
         self.objproductodao = ProductoDAO()
         self.ventana = uic.loadUi("view/buscarproducto.ui")
 
-        # Verificar que resultadoproducto es un QTableWidget
-        if not isinstance(self.ventana.resultadoproducto, QtWidgets.QTableWidget):
-            raise TypeError("El widget 'resultadoproducto' no es un QTableWidget")
+       
 
         # Configuración inicial de la tabla
-        self.ventana.resultadoproducto.setColumnCount(4)
-        self.ventana.resultadoproducto.setHorizontalHeaderLabels(['Código', 'Fecha Ingreso', 'Nombre', 'Cantidad'])
+        
         self.ventana.resultadoproducto.setColumnWidth(0, 100)
         self.ventana.resultadoproducto.setColumnWidth(1, 120)
         self.ventana.resultadoproducto.setColumnWidth(2, 200)
@@ -23,10 +20,18 @@ class productoController:
 
         # Conectar señales a los métodos
         self.ventana.buscarproducto.clicked.connect(self.buscarproducto)
+        self.ventana.regresarproducto.clicked.connect(self.regresarproductoonclicked)
 
         # Mostrar la ventana
-        self.ventana.show()
-        app.exec()
+        #self.ventana.show()
+        #app.exec()
+    def regresarproductoonclicked(self):
+        self.ventana.close()
+        from controller.almacenstock import AlmacenStockController
+        
+        self.frmalmacenstock= AlmacenStockController()
+        self.frmalmacenstock.ventana.show()
+
 
     def buscarproducto(self):
         try:

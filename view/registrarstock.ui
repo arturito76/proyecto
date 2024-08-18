@@ -14,13 +14,14 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(159, 165, 101);</string>
+   <string notr="true">background-color: #ADD8E6; /* Azul Claro */
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>160</x>
       <y>20</y>
       <width>681</width>
       <height>41</height>
@@ -34,7 +35,7 @@
      </font>
     </property>
     <property name="text">
-     <string>almacen stock</string>
+     <string>AREA STOCK</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -63,6 +64,13 @@
        <width>151</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>CODIGO   </string>
@@ -96,8 +104,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>fecha ingreso</string>
+      <string>FECHA INGRESO</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -127,6 +142,13 @@
        <width>151</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>CANTIDAD  </string>
@@ -176,8 +198,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>nombre producto</string>
+      <string>NOM PRODUCTO</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -192,8 +221,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>cod empleado</string>
+      <string>COD EMPLEADO</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -218,10 +254,10 @@
     <widget class="QPushButton" name="agregarstock">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>290</y>
+       <x>770</x>
+       <y>20</y>
        <width>161</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -242,10 +278,10 @@ color: rgb(85, 255, 0);</string>
     <widget class="QPushButton" name="cancelarstock">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>300</y>
+       <x>770</x>
+       <y>130</y>
        <width>161</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -266,10 +302,10 @@ color: rgb(85, 170, 0);</string>
     <widget class="QPushButton" name="regresar1">
      <property name="geometry">
       <rect>
-       <x>350</x>
-       <y>330</y>
-       <width>121</width>
-       <height>31</height>
+       <x>30</x>
+       <y>290</y>
+       <width>161</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -296,8 +332,15 @@ color: rgb(244, 228, 0);</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>cod producto</string>
+      <string>COD PRODUCTO</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -306,7 +349,7 @@ color: rgb(244, 228, 0);</string>
     <widget class="QLineEdit" name="codproductostock">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>240</y>
        <width>511</width>
        <height>31</height>
@@ -319,13 +362,40 @@ color: rgb(244, 228, 0);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QPushButton" name="buscarproducto">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>260</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Sans Serif</family>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(85, 255, 127);
+selection-background-color: rgb(170, 170, 127);
+font: 8pt &quot;MS Sans Serif&quot;;</string>
+     </property>
+     <property name="text">
+      <string>BUSCAR PRODUCTO</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QTableWidget" name="tablastock">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>470</y>
-      <width>931</width>
+      <x>-10</x>
+      <y>430</y>
+      <width>1171</width>
       <height>361</height>
      </rect>
     </property>
