@@ -21,6 +21,7 @@ class productoController:
         # Conectar señales a los métodos
         self.ventana.buscarproducto.clicked.connect(self.buscarproducto)
         self.ventana.regresarproducto.clicked.connect(self.regresarproductoonclicked)
+        self.ventana.actualizar.clicked.connect(self.actualizaronclicked)
 
         # Mostrar la ventana
         #self.ventana.show()
@@ -31,6 +32,20 @@ class productoController:
         
         self.frmalmacenstock= AlmacenStockController()
         self.frmalmacenstock.ventana.show()
+    
+    def actualizaronclicked(self):
+        cod_producto = self.ventana.codproducto.text()
+        nueva_cantidad = self.ventana.nuevacantidad.text()
+        self.objproductodao.actualizar_producto(cod_producto, nueva_cantidad)
+
+        QtWidgets.QMessageBox.information(self.ventana, "Éxito", "La cantidad del producto ha sido actualizada.")
+
+            # Actualizar la vista
+        self.buscarproducto()
+       
+        
+
+        
 
 
     def buscarproducto(self):

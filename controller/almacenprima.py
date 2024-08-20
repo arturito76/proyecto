@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets, uic
-from dao.materialdao import almacenprimabd
+from dao.materialdao import AlmacenPrimaBD
 from model.Almacenprima import AlmacenPrimamode
 from PyQt5.QtWidgets import QTableWidgetItem, QApplication
 from datetime import datetime
@@ -7,7 +7,7 @@ from datetime import datetime
 class almacenprimaController:
     def __init__(self):
         #app = QtWidgets.QApplication([])
-        self.objalmacenprimadao = almacenprimabd()
+        self.objalmacenprimadao = AlmacenPrimaBD()
         self.ventana = uic.loadUi("view/almacenprima.ui")
 
         
