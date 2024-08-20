@@ -135,7 +135,7 @@ border-radius: 8px</string>
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>530</y>
+      <y>540</y>
       <width>141</width>
       <height>51</height>
      </rect>
@@ -236,7 +236,7 @@ background-color: rgb(170, 170, 255);</string>
    <widget class="QLineEdit" name="codproducto_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>100</x>
       <y>150</y>
       <width>181</width>
       <height>31</height>
@@ -262,7 +262,7 @@ background-color: rgb(170, 170, 255);</string>
    <widget class="QPushButton" name="actualizar">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>520</x>
       <y>150</y>
       <width>121</width>
       <height>41</height>

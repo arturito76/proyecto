@@ -22,4 +22,6 @@ df= LoginController()
 
 #from controller.controllerbuscarmaterial import  controllerbuscarmaterial
 #dr=controllerbuscarmaterial()
+#from controller.reportecontroller import ControllerReporteMaterial
+#df= ControllerReporteMaterial()
 
